@@ -14,3 +14,7 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
+
+$app->group(['prefix' => 'moscow'], function() use($app){
+    $app->post('ranking', ['uses' => 'MoscowController@calcularRanking']);
+});
