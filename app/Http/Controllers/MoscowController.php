@@ -29,7 +29,7 @@ class MoscowController extends Controller
                     $requisito_da_vez->quantidade_entradas++;
                     $requisitos->push($requisito_da_vez);
                 }else{
-                    $valor = $this->filtrar($requisitos, $requisito['idrequisito']);
+                    $valor = $this->filtrarEntradaRequisitosIguais($requisitos, $requisito['idrequisito']);
                     $requisito['entrada'] == "must" ? $valor->must++ : "";
                     $requisito['entrada'] == "should" ? $valor->should++ : "";
                     $requisito['entrada'] == "could" ? $valor->could++ : "";
@@ -53,7 +53,7 @@ class MoscowController extends Controller
         }
     }
 
-    private function filtrar($valor, $id)
+    private function filtrarEntradaRequisitosIguais($valor, $id)
     {
         foreach($valor as $requisito){
             if($requisito->idrequisito == $id){
