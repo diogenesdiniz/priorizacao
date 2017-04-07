@@ -1,15 +1,69 @@
 #  G4R-Priorization (API)
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+Projeto relativo a API do G4R-Priorization que tem como objetivo auxiliar no processo de priorização de requisitos através de técnicas implementadas na linguagem de programação PHP utilizando o micro-framework Lumen.
 
-## Official Documentation
+## Técnicas Implementadas
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+O projeto possui a implementação de 4 técnicas de priorização de requisitos, sendo elas: MoSCoW, Dólar 100(Price 100$), AHP e Matriz de Wiegers.
 
-## Security Vulnerabilities
+## Desenvolvimento
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+A API foi desenvolvida por Diógenes Diniz(diogenesdini@gmail.com)
 
-## License
+## Descrição das Técnicas
+* MoSCoW
+  * Method
+    - POST
+  * URL de Acesso
+    - https://priorizacao.herokuapp.com/public/dollar/ranking
+  * Entrada
+  
+  ```
+  {
+	"requisitos": [{
+		"idrequisito" : 1,
+		"valor" : 100.0
+	},{
+		"idrequisito" : 1,
+		"valor" : 100.0
+	},{
+		"idrequisito" : 2,
+		"valor" : 50.0
+	},{
+		"idrequisito" : 2,
+		"valor" : 50.0
+	},{
+		"idrequisito" : 3,
+		"valor" : 100.0
+	},{
+		"idrequisito" : 3,
+		"valor" : 1000.0
+	}]
+  }
 
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+  ```
+  * Saída
+  
+  ```
+  {
+  "success": true,
+  "data": [
+    {
+      "idrequisito": 3,
+      "valor": 1100,
+      "quantidade_entradas": 2
+    },
+    {
+      "idrequisito": 1,
+      "valor": 200,
+      "quantidade_entradas": 2
+    },
+    {
+      "idrequisito": 2,
+      "valor": 100,
+      "quantidade_entradas": 2
+    }
+  ]
+  }
+  
+  ```
