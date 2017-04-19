@@ -22,3 +22,7 @@ $app->group(['prefix' => 'moscow'], function() use($app){
 $app->group(['prefix' => 'dollar'], function() use($app){
    $app->post('ranking', ['uses' => 'DollarController@calcularRanking']);
 });
+
+$app->group(['prefix' => 'ahp'], function() use($app){
+   $app->post('ranking', ['uses' => 'AHPController@calcularRanking']);
+});
