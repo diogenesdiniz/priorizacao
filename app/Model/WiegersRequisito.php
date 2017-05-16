@@ -18,6 +18,11 @@ class WiegersRequisito extends Model
         'prejuizo',
         'custo',
         'beneficio',
-        'risco'
+        'risco',
+        'beneficio_prejuizo',
+        'porcentagem_beneficio_prejuizo',
+        'porcentagem_custo',
+        'porcentagem_risco',
+        'prioridade'
     ];
 }
