@@ -26,3 +26,7 @@ $app->group(['prefix' => 'dollar'], function() use($app){
 $app->group(['prefix' => 'ahp'], function() use($app){
    $app->post('ranking', ['uses' => 'AHPController@calcularRanking']);
 });
+
+$app->group(['prefix' => 'wiegers'], function() use($app){
+   $app->post('ranking', ['uses' => 'WiegersController@calcularRanking']);
+});
