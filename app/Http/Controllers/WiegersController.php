@@ -52,8 +52,8 @@ class WiegersController extends Controller
                 $requisito->prioridade = $requisito->porcentagem_beneficio_prejuizo / ($requisito->porcentagem_custo*$peso_custo + $requisito->porcentagem_risco*$peso_risco);
             }
 
-            print_r($requisitos);
-            die();
+            $ordenados = $requisitos->sortByDesc('prioridade');
+            return new JsonResponse(['success' => true, 'data' => $ordenados->values()->all()]);
         }catch (\Exception $e){
             return new JsonResponse(['success' => false, 'message' => $e->getMessage()]);
         }
