@@ -11,7 +11,7 @@ O projeto possui a implementação de 4 técnicas de priorização de requisitos
 A API foi desenvolvida por Diógenes Diniz(diogenesdini@gmail.com)
 
 ## Descrição das Técnicas
-* MoSCoW
+* Dollar 100
   * Method
     - POST
   * URL de Acesso
@@ -66,4 +66,72 @@ A API foi desenvolvida por Diógenes Diniz(diogenesdini@gmail.com)
   ]
   }
   
+  ```
+* MoSCoW
+  * Method
+    - POST
+  * URL de Acesso
+    - https://priorizacao.herokuapp.com/public/moscow/ranking
+  * Entrada
+  ```
+  {
+	"requisitos": [{
+		"idrequisito": "casa",
+		"entrada": "must"
+	},{
+		"idrequisito": 2,
+		"entrada": "should"
+	},{
+		"idrequisito": 3,
+		"entrada": "could"
+	},{
+		"idrequisito": 4,
+		"entrada": "must"
+	},{
+		"idrequisito": 4,
+		"entrada": "must"
+	},{
+		"idrequisito": 3,
+		"entrada": "want"
+	},{
+		"idrequisito": 2,
+		"entrada": "want"
+	},{
+		"idrequisito": "casa",
+		"entrada": "want"
+	}]
+	}
+  ```
+  
+  * Saída
+  
+  ```
+  {
+  "success": true,
+  "data": [
+    {
+      "idrequisito": 4,
+      "must": 2,
+      "quantidade_entradas": 2
+    },
+    {
+      "idrequisito": "casa",
+      "must": 1,
+      "quantidade_entradas": 2,
+      "want": 1
+    },
+    {
+      "idrequisito": 2,
+      "should": 1,
+      "quantidade_entradas": 2,
+      "want": 1
+    },
+    {
+      "idrequisito": 3,
+      "could": 1,
+      "quantidade_entradas": 2,
+      "want": 1
+    }
+  ]
+	}
   ```
