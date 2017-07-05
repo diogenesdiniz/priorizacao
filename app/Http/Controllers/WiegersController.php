@@ -39,7 +39,7 @@ class WiegersController extends Controller
                 $requisitos->push($wiegers_requisito);
 
 
-                $beneficio_prejuizo_total = $wiegers_requisito->beneficio*$peso_beneficio + $wiegers_requisito->prejuizo*$peso_prejuizo;
+                $beneficio_prejuizo_total += $wiegers_requisito->beneficio*$peso_beneficio + $wiegers_requisito->prejuizo*$peso_prejuizo;
                 $risco_total += $wiegers_requisito->risco;
                 $custo_total += $wiegers_requisito->custo;
             }
